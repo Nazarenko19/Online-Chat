@@ -1,40 +1,37 @@
 import React, { useContext } from "react";
-import { Container, Grid, Box, Button } from "@material-ui/core";
+import { Container, Grid, Button } from "@material-ui/core";
 import { Context } from "index";
 import firebase from "firebase";
+import authorizationStyles from "./styles";
+import { withStyles } from "@material-ui/styles";
+import { ReactComponent as GoogleIcon } from "assets/icons/google-icon.svg";
 
-const Authorization = () => {
+const Authorization = ({ classes }) => {
+  const { authorizationWrapper, authorizationGoogleIcon, authorizationButton } =
+    classes;
+
   const { auth } = useContext(Context);
 
   const login = async () => {
     const provider = new firebase.auth.GoogleAuthProvider();
-    const user = await auth.signInWithPopup(provider);
-    console.log(user);
+    await auth.signInWithPopup(provider);
   };
 
   return (
     <Container>
       <Grid
         container
-        style={{ height: window.innerHeight - 50 }}
+        className={authorizationWrapper}
         alignItems="center"
         justify="center"
       >
-        <Grid
-          style={{ width: 400, background: "lightgray" }}
-          container
-          alignItems="center"
-          direction="column"
-        >
-          <Box p={5}>
-            <Button onClick={login} variant="outlined">
-              Login with Google
-            </Button>
-          </Box>
-        </Grid>
+        <Button className={authorizationButton} onClick={login}>
+          Sign in with Google
+          <GoogleIcon className={authorizationGoogleIcon} />
+        </Button>
       </Grid>
     </Container>
   );
 };
 
-export default Authorization;
+export default withStyles(authorizationStyles)(Authorization);

@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import { Router } from "react-router-dom";
-import Content from "modules";
-import history from "routes/history";
-import Navbar from "components/Navbar";
-import { Context } from "index";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { Context } from "index";
+import history from "routes/history";
+import Navbar from "components/Header";
 import Loader from "components/Loader";
+import Content from "modules";
+
+import "../styles/globals.scss";
 
 export default function ChatApp({ ...props }) {
   const { auth } = useContext(Context);

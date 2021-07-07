@@ -4,16 +4,21 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { Container, Grid, TextField, Button, Avatar } from "@material-ui/core";
 import firebase from "firebase";
+import Loader from "components/Loader";
+import chatStyles from "./styles";
+import { withStyles } from "@material-ui/styles";
 
-const Chat = () => {
+const Chat = ({ classes }) => {
+  const { chatWrapper } = classes;
+
+  const [value, setValue] = useState();
   const { auth, firestore } = useContext(Context);
   const [user] = useAuthState(auth);
-  const [value, setValue] = useState();
   const [messages, loading] = useCollectionData(
     firestore.collection("messages").orderBy("createdAt")
   );
 
-  const sendMessage = async () => {
+  const handleSendMessage = async () => {
     firestore.collection("messages").add({
       uid: user.uid,
       displayName: user.displayName,
@@ -24,6 +29,8 @@ const Chat = () => {
 
     setValue("");
   };
+
+  const handleInputChange = (event) => setValue(event.target.value);
 
   return (
     <Container>
@@ -72,9 +79,9 @@ const Chat = () => {
             rowsMax={2}
             variant="outlined"
             value={value}
-            onChange={(e) => setValue(e.target.value)}
+            onChange={handleInputChange}
           />
-          <Button onClick={sendMessage} variant="outlined">
+          <Button onClick={handleSendMessage} variant="outlined">
             Send
           </Button>
         </Grid>
@@ -83,4 +90,4 @@ const Chat = () => {
   );
 };
 
-export default Chat;
+export default withStyles(chatStyles)(Chat);

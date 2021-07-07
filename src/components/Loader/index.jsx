@@ -1,19 +1,16 @@
 import React from "react";
-import { Container, Grid } from "@material-ui/core";
+import { Loader as BasicLoader } from "react-loaders";
+import { withStyles } from "@material-ui/styles";
+import loaderStyles from "./styles";
 
-const Loader = () => {
+const Loader = ({ classes }) => {
+  const { loaderWrapper } = classes;
+
   return (
-    <Container>
-      <Grid
-        container
-        style={{ height: window.innerHeight - 50 }}
-        alignItems="center"
-        justify="center"
-      >
-        Loading...
-      </Grid>
-    </Container>
+    <div className={loaderWrapper}>
+      <BasicLoader type="ball-clip-rotate-pulse" />
+    </div>
   );
 };
 
-export default Loader;
+export default withStyles(loaderStyles)(Loader);
