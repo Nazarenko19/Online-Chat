@@ -4,11 +4,13 @@ import { withStyles } from "@material-ui/styles";
 import loaderStyles from "./styles";
 
 const Loader = ({ classes }) => {
-  const { loaderWrapper } = classes;
+  const { loaderWrapper, loaderSection } = classes;
 
   return (
-    <div className={loaderWrapper}>
-      <BasicLoader type="ball-clip-rotate-pulse" />
+    <div className={loaderSection}>
+      <div className={loaderWrapper}>
+        <BasicLoader type="ball-clip-rotate-pulse" />
+      </div>
     </div>
   );
 };

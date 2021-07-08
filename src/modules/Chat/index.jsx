@@ -1,12 +1,13 @@
 import React, { useContext, useState } from "react";
 import { Context } from "index";
+import firebase from "firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useCollectionData } from "react-firebase-hooks/firestore";
-import { Container, Grid, TextField, Button, Avatar } from "@material-ui/core";
-import firebase from "firebase";
-import Loader from "components/Loader";
 import chatStyles from "./styles";
 import { withStyles } from "@material-ui/styles";
+import Loader from "components/Loader";
+import { Container, Grid, TextField, Button, Avatar } from "@material-ui/core";
+import Message from "components/Message";
 
 const Chat = ({ classes }) => {
   const { chatWrapper } = classes;
@@ -19,10 +20,12 @@ const Chat = ({ classes }) => {
   );
 
   const handleSendMessage = async () => {
+    const { uid, displayName, photoURL } = user;
+
     firestore.collection("messages").add({
-      uid: user.uid,
-      displayName: user.displayName,
-      photoURL: user.photoURL,
+      uid,
+      displayName,
+      photoURL,
       text: value,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
     });
@@ -47,26 +50,16 @@ const Chat = ({ classes }) => {
             overflowY: "auto",
           }}
         >
-          {messages?.map((message) => (
-            <div
-              style={{
-                margin: 10,
-                border:
-                  user.uid === message.uid
-                    ? "2px solid green"
-                    : "2px dashed red",
-                marginLeft: user.uid === message.uid ? "auto" : "10px",
-                width: "fit-content",
-                padding: 5,
-              }}
-            >
-              <Grid container>
-                <Avatar src={message.photoURL} />
-                <div>{message.displayName}</div>
-              </Grid>
-              <div>{message.text}</div>
-            </div>
-          ))}
+          {loading ? (
+            <Loader />
+          ) : (
+            messages?.map((message) => (
+              <Message
+                message={message}
+                isCurrentUser={user.uid === message.uid}
+              />
+            ))
+          )}
         </div>
         <Grid
           container

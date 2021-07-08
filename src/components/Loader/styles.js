@@ -1,13 +1,15 @@
 import { createStyles } from "@material-ui/core/styles";
 
 const loaderStyles = createStyles(() => ({
+  loaderSection: {
+    position: "relative",
+    height: "100vh",
+  },
   loaderWrapper: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    padding: "10px",
-    height: "50px",
-    width: "50px",
+    padding: "40px",
     borderRadius: "50%",
     backgroundColor: "black",
     position: "absolute",
