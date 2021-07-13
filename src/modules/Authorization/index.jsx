@@ -17,14 +17,16 @@ const Authorization = ({ classes }) => {
   };
 
   return (
-    <Container className={authorizationContainer}>
-      <Grid container className={authorizationWrapper} alignItems="center" justify="center">
-        <Button className={authorizationButton} onClick={login}>
-          Sign in with Google
-          <GoogleIcon className={authorizationGoogleIcon} />
-        </Button>
-      </Grid>
-    </Container>
+    <section className={authorizationContainer}>
+      <Container>
+        <Grid container className={authorizationWrapper} alignItems="center" justify="center">
+          <Button className={authorizationButton} onClick={login}>
+            Sign in with Google
+            <GoogleIcon className={authorizationGoogleIcon} />
+          </Button>
+        </Grid>
+      </Container>
+    </section>
   );
 };
 
