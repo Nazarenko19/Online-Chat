@@ -4,10 +4,9 @@ import { Router } from "react-router-dom";
 import history from "routes/history";
 
 import { useAuthState } from "react-firebase-hooks/auth";
-import firebase from "firebase/app";
+import firebase from "firebase/config";
 import "firebase/firestore";
 import "firebase/auth";
-import "firebase/config";
 
 import Context from "context";
 
