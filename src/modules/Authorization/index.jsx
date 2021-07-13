@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import { Container, Grid, Button } from "@material-ui/core";
-import { Context } from "index";
+import Context from "context";
 import firebase from "firebase";
 import authorizationStyles from "./styles";
 import { withStyles } from "@material-ui/styles";
 import { ReactComponent as GoogleIcon } from "assets/icons/google-icon.svg";
 
 const Authorization = ({ classes }) => {
-  const { authorizationWrapper, authorizationGoogleIcon, authorizationButton } =
+  const { authorizationContainer,authorizationWrapper, authorizationGoogleIcon, authorizationButton } =
     classes;
 
   const { auth } = useContext(Context);
@@ -18,7 +18,7 @@ const Authorization = ({ classes }) => {
   };
 
   return (
-    <Container>
+    <Container className={authorizationContainer}>
       <Grid
         container
         className={authorizationWrapper}

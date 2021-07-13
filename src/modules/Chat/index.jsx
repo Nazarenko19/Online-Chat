@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Context } from "index";
+import Context from "context";
 import firebase from "firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useCollectionData } from "react-firebase-hooks/firestore";

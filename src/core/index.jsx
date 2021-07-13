@@ -1,8 +1,16 @@
-import React, { useContext } from "react";
+import React from "react";
+
 import { Router } from "react-router-dom";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { Context } from "index";
 import history from "routes/history";
+
+import { useAuthState } from "react-firebase-hooks/auth";
+import firebase from "firebase";
+import "firebase/firestore";
+import "firebase/auth";
+import "firebase/config"
+
+import Context from "context";
+
 import Navbar from "components/Header";
 import Loader from "components/Loader";
 import Content from "modules";
@@ -10,7 +18,9 @@ import Content from "modules";
 import "../styles/globals.scss";
 
 export default function ChatApp({ ...props }) {
-  const { auth } = useContext(Context);
+  const auth = firebase.auth();
+  const firestore = firebase.firestore();
+
   const [, loading] = useAuthState(auth);
 
   if (loading) return <Loader />;
@@ -18,8 +28,10 @@ export default function ChatApp({ ...props }) {
   return (
     <React.Fragment>
       <Router history={history}>
+        <Context.Provider value={{firebase, auth, firestore}}>
         <Navbar />
         <Content {...props} />
+        </Context.Provider>
       </Router>
     </React.Fragment>
   );

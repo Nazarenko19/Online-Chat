@@ -1,20 +1,22 @@
 import React, { useContext } from "react";
-import { Context } from "index";
+import Context from 'context'
 import { withStyles } from "@material-ui/core/styles";
 import QuestionAnswerIcon from "@material-ui/icons/QuestionAnswer";
 import { Grid, Toolbar, AppBar, Button } from "@material-ui/core";
 import headerStyles from "./styles";
 
 const Header = ({ classes }) => {
-  const { headerWrapper, toolbar } = classes;
+  const { headerLogoContainer, headerTitle, headerIcon, toolbar } = classes;
   const { auth } = useContext(Context);
 
   return (
-    <div className={headerWrapper}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar className={toolbar}>
           <Grid container justify="space-between" alignItems="center">
-            <QuestionAnswerIcon />
+            <div className={headerLogoContainer}>
+            <QuestionAnswerIcon className={headerIcon} />
+            <span className={headerTitle}>Online-Chat</span>
+            </div>
             {auth.currentUser && (
               <Button onClick={() => auth.signOut()} color="inherit">
                 Logout
@@ -23,7 +25,6 @@ const Header = ({ classes }) => {
           </Grid>
         </Toolbar>
       </AppBar>
-    </div>
   );
 };
 

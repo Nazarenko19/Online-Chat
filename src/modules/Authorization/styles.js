@@ -1,6 +1,13 @@
 import { createStyles } from "@material-ui/core/styles";
+import Background from 'assets/backgrounds/e-mail.jpg'
 
 const authorizationStyles = createStyles(() => ({
+  authorizationContainer: {
+    background: `url(${Background}) no-repeat`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    height: "100vh"
+  },
   authorizationWrapper: {
     height: window.innerHeight - 50,
   },

@@ -2,7 +2,7 @@ import React, { Suspense, useContext } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import { publicRoutes, privateRoutes } from "routes/routes-list";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Context } from "index";
+import Context from "context";
 import Loader from "components/Loader";
 
 const Authorization = React.lazy(() => import("./Authorization"));
