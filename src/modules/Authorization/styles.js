@@ -1,5 +1,5 @@
 import { createStyles } from "@material-ui/core/styles";
-import Background from 'assets/backgrounds/e-mail.jpg'
+import Background from "assets/backgrounds/e-mail.jpg";
 
 const authorizationStyles = createStyles(() => ({
   authorizationContainer: {
@@ -9,11 +9,11 @@ const authorizationStyles = createStyles(() => ({
     height: "100vh"
   },
   authorizationWrapper: {
-    height: window.innerHeight - 50,
+    height: window.innerHeight - 50
   },
   authorizationGoogleIcon: {
     marginLeft: "10px",
-    fill: "green",
+    fill: "green"
   },
   authorizationButton: {
     background: "black",
@@ -24,9 +24,9 @@ const authorizationStyles = createStyles(() => ({
     "&:hover": {
       background: "black",
       opacity: 0.8,
-      transition: ".3s",
-    },
-  },
+      transition: ".3s"
+    }
+  }
 }));
 
 export default authorizationStyles;

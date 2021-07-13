@@ -5,14 +5,14 @@ const messageStyles = createStyles(() => ({
     margin: 10,
     width: "fit-content",
     padding: 5,
-    marginLeft: "10px",
+    marginLeft: "10px"
   },
   messageIsCurrentUser: {
-    marginLeft: "auto",
+    marginLeft: "auto"
   },
   messageAvatar: {
-    marginRight: "5px",
-  },
+    marginRight: "5px"
+  }
 }));
 
 export default messageStyles;

@@ -22,10 +22,7 @@ const Content = () => {
           </Switch>
         ) : (
           <Switch>
-            <Route
-              path={publicRoutes.authorization}
-              component={Authorization}
-            />
+            <Route path={publicRoutes.authorization} component={Authorization} />
             <Redirect to={publicRoutes.authorization} />
           </Switch>
         )}

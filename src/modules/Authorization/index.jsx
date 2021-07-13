@@ -7,8 +7,7 @@ import { withStyles } from "@material-ui/styles";
 import { ReactComponent as GoogleIcon } from "assets/icons/google-icon.svg";
 
 const Authorization = ({ classes }) => {
-  const { authorizationContainer,authorizationWrapper, authorizationGoogleIcon, authorizationButton } =
-    classes;
+  const { authorizationContainer, authorizationWrapper, authorizationGoogleIcon, authorizationButton } = classes;
 
   const { auth } = useContext(Context);
 
@@ -19,12 +18,7 @@ const Authorization = ({ classes }) => {
 
   return (
     <Container className={authorizationContainer}>
-      <Grid
-        container
-        className={authorizationWrapper}
-        alignItems="center"
-        justify="center"
-      >
+      <Grid container className={authorizationWrapper} alignItems="center" justify="center">
         <Button className={authorizationButton} onClick={login}>
           Sign in with Google
           <GoogleIcon className={authorizationGoogleIcon} />

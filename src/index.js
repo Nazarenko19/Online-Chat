@@ -4,7 +4,7 @@ import App from "core/index";
 import Loader from "components/Loader";
 
 ReactDOM.render(
-  <Suspense fallback={<Loader/>}>
+  <Suspense fallback={<Loader />}>
     <App />
   </Suspense>,
   document.getElementById("root")

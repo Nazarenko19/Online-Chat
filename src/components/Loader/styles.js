@@ -3,7 +3,7 @@ import { createStyles } from "@material-ui/core/styles";
 const loaderStyles = createStyles(() => ({
   loaderSection: {
     position: "relative",
-    height: "100vh",
+    height: "100vh"
   },
   loaderWrapper: {
     display: "flex",
@@ -15,8 +15,8 @@ const loaderStyles = createStyles(() => ({
     position: "absolute",
     transform: "translate(-50%, -50%)",
     top: "50%",
-    left: "50%",
-  },
+    left: "50%"
+  }
 }));
 
 export default loaderStyles;

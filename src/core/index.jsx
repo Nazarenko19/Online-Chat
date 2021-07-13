@@ -4,10 +4,10 @@ import { Router } from "react-router-dom";
 import history from "routes/history";
 
 import { useAuthState } from "react-firebase-hooks/auth";
-import firebase from "firebase";
+import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
-import "firebase/config"
+import "firebase/config";
 
 import Context from "context";
 
@@ -28,9 +28,9 @@ export default function ChatApp({ ...props }) {
   return (
     <React.Fragment>
       <Router history={history}>
-        <Context.Provider value={{firebase, auth, firestore}}>
-        <Navbar />
-        <Content {...props} />
+        <Context.Provider value={{ firebase, auth, firestore }}>
+          <Navbar />
+          <Content {...props} />
         </Context.Provider>
       </Router>
     </React.Fragment>
