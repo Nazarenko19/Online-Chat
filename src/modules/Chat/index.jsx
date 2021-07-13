@@ -10,7 +10,7 @@ import { Container, Grid, TextField, Button, Avatar } from "@material-ui/core";
 import Message from "components/Message";
 
 const Chat = ({ classes }) => {
-  const { chatWrapper } = classes;
+  const { chatContainer } = classes;
 
   const [value, setValue] = useState();
   const { auth, firestore } = useContext(Context);
@@ -34,32 +34,34 @@ const Chat = ({ classes }) => {
   const handleInputChange = event => setValue(event.target.value);
 
   return (
-    <Container>
-      <Grid container style={{ height: window.innerHeight - 50, marginTop: 20 }} justify="center">
-        <div
-          style={{
-            width: "80%",
-            height: "60vh",
-            border: "1px solid gray",
-            overflowY: "auto"
-          }}
-        >
-          {loading ? (
-            <Loader />
-          ) : (
-            messages?.map((message, index) => (
-              <Message key={index} message={message} isCurrentUser={user.uid === message.uid} />
-            ))
-          )}
-        </div>
-        <Grid container direction="column" alignItems="flex-end" style={{ width: "80%" }}>
-          <TextField fullWidth rowsMax={2} variant="outlined" value={value} onChange={handleInputChange} />
-          <Button onClick={handleSendMessage} variant="outlined">
-            Send
-          </Button>
+    <section className={chatContainer}>
+      <Container>
+        <Grid container style={{ height: window.innerHeight - 50 }}>
+          <div
+            style={{
+              width: "80%",
+              height: "60vh",
+              border: "1px solid gray",
+              overflowY: "auto"
+            }}
+          >
+            {loading ? (
+              <Loader />
+            ) : (
+              messages?.map((message, index) => (
+                <Message key={index} message={message} isCurrentUser={user.uid === message.uid} />
+              ))
+            )}
+          </div>
+          <Grid container direction="column" alignItems="flex-end" style={{ width: "80%" }}>
+            <TextField fullWidth rowsMax={2} variant="outlined" value={value} onChange={handleInputChange} />
+            <Button onClick={handleSendMessage} variant="outlined">
+              Send
+            </Button>
+          </Grid>
         </Grid>
-      </Grid>
-    </Container>
+      </Container>
+    </section>
   );
 };
 

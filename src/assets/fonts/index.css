@@ -1,0 +1,34 @@
+@font-face {
+  font-family: "boodle-bold";
+  src: local("boodle"), url(./boodle-bold.woff) format("woff");
+}
+
+@font-face {
+  font-family: "boodle-demibold";
+  src: local("boodle"), url(./boodle-demibold.woff) format("woff");
+}
+
+@font-face {
+  font-family: "boodle-light";
+  src: local("boodle"), url(./boodle-light.woff) format("woff");
+}
+
+@font-face {
+  font-family: "boodle-medium";
+  src: local("boodle"), url(./boodle-medium.woff) format("woff");
+}
+
+@font-face {
+  font-family: "boodle-regular";
+  src: local("boodle"), url(./boodle-regular.woff) format("woff");
+}
+
+@font-face {
+  font-family: "apex-bold";
+  src: local("Apex"), url(./Apex-Mk3-Bold.woff) format("woff");
+}
+
+@font-face {
+  font-family: "apex-regular";
+  src: local("Apex"), url(./Apex-Mk3-Regular.woff) format("woff");
+}

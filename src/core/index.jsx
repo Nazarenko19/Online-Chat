@@ -14,7 +14,10 @@ import Navbar from "components/Header";
 import Loader from "components/Loader";
 import Content from "modules";
 
+import { ThemeProvider } from "@material-ui/core/styles";
+import theme from "./theme";
 import "../styles/globals.scss";
+import "assets/fonts/index.css";
 
 export default function ChatApp({ ...props }) {
   const auth = firebase.auth();
@@ -26,12 +29,14 @@ export default function ChatApp({ ...props }) {
 
   return (
     <React.Fragment>
-      <Router history={history}>
-        <Context.Provider value={{ firebase, auth, firestore }}>
-          <Navbar />
-          <Content {...props} />
-        </Context.Provider>
-      </Router>
+      <ThemeProvider theme={theme}>
+        <Router history={history}>
+          <Context.Provider value={{ firebase, auth, firestore }}>
+            <Navbar />
+            <Content {...props} />
+          </Context.Provider>
+        </Router>
+      </ThemeProvider>
     </React.Fragment>
   );
 }

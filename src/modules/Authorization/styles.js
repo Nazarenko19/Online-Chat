@@ -1,7 +1,7 @@
 import { createStyles } from "@material-ui/core/styles";
 import Background from "assets/backgrounds/e-mail.jpg";
 
-const authorizationStyles = createStyles(() => ({
+const authorizationStyles = createStyles(({ palette }) => ({
   authorizationContainer: {
     background: `url(${Background}) no-repeat`,
     backgroundSize: "cover",
@@ -15,17 +15,16 @@ const authorizationStyles = createStyles(() => ({
     marginLeft: "10px",
     fill: "green"
   },
+  authorizationButtonWrapper: {
+    background: palette.colors.main,
+    padding: "60px 85px",
+    borderRadius: "25px",
+    boxShadow: "0px 0px 26px 11px rgba(34, 60, 80, 0.5)"
+  },
   authorizationButton: {
-    background: "black",
-    color: "white",
-    padding: "35px",
-    borderRadius: "15px",
-    fontSize: "20px",
-    "&:hover": {
-      background: "black",
-      opacity: 0.8,
-      transition: ".3s"
-    }
+    display: "flex",
+    alignItems: "center",
+    fontSize: "24px"
   }
 }));
 
