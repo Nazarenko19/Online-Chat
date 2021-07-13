@@ -1,12 +1,12 @@
 import React, { useContext, useState } from "react";
 import Context from "context";
-import firebase from "firebase";
+import firebase from "firebase/app";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import chatStyles from "./styles";
 import { withStyles } from "@material-ui/styles";
 import Loader from "components/Loader";
-import { Container, Grid, TextField, Button, Avatar } from "@material-ui/core";
+import { Container, Grid, TextField, Button } from "@material-ui/core";
 import Message from "components/Message";
 
 const Chat = ({ classes }) => {
