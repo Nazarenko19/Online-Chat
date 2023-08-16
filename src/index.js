@@ -5,14 +5,15 @@ import firebase from "firebase";
 import "firebase/firestore";
 import "firebase/auth";
 
+//TODO: add from env file
 firebase.initializeApp({
-  apiKey: "AIzaSyBnV4hqhm0gDrqBbATZQamnHjEaEJJin6o",
-  authDomain: "chat-react-5469f.firebaseapp.com",
-  projectId: "chat-react-5469f",
-  storageBucket: "chat-react-5469f.appspot.com",
-  messagingSenderId: "962699765272",
-  appId: "1:962699765272:web:923dd6c452cbc14fce856d",
-  measurementId: "G-Q763LX3N33",
+  apiKey: "",
+  authDomain: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: "",
+  measurementId: "",
 });
 
 export const Context = createContext(null);
